@@ -43,7 +43,8 @@ body {
 }
 .wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter); padding-block: 0; }
 h1, h2, h3 { font-family: var(--display); font-style: italic; font-weight: 500; margin: 0; line-height: 1.02; text-wrap: balance; letter-spacing: -.015em; }
-h1 { font-size: clamp(2.9rem, 7.2vw, 5.6rem); }
+h1 { font-size: clamp(2.9rem, 6.4vw, 5rem); }
+.h1-line { display: block; }
 h2 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); }
 h3 { font-size: 1.75rem; line-height: 1.1; }
 p { margin: 0; }
@@ -70,8 +71,11 @@ p { margin: 0; }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
 /* hero */
-.hero { padding-block: clamp(48px, 8vw, 104px) clamp(56px, 8vw, 96px); display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+.hero { padding-block: clamp(48px, 7vw, 88px) clamp(56px, 7vw, 88px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 4vw, 56px); align-items: center; }
 .hero-copy { display: flex; flex-direction: column; gap: 28px; min-width: 0; }
+.hero-copy .kicker { font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(1.45rem, 2.3vw, 1.8rem); line-height: 1.25; color: var(--ink); max-width: 34ch; margin-bottom: -10px; }
+.k-line { display: block; }
+.k-line + .k-line { margin-top: 6px; }
 .hero-copy .lede { font-size: clamp(1.05rem, 1.6vw, 1.22rem); color: var(--ink-soft); max-width: 46ch; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 .hero-cta .note { font-size: .88rem; color: var(--ink-soft); }
@@ -216,7 +220,8 @@ footer .foot-line { font-family: var(--display); font-style: italic; font-size: 
   <div class="wrap hero">
     <div class="hero-copy">
       <span class="eyebrow">Alignment for life and work</span>
-      <h1>Change it at the root. Watch it ripple.</h1>
+      <h1><span class="h1-line">Change it at the root.</span> <span class="h1-line">Watch it ripple.</span></h1>
+      <p class="kicker"><span class="k-line">Even the world’s best need someone to talk to.</span> <span class="k-line">You’re at the top because you keep choosing to grow.</span></p>
       <p class="lede">Real change starts at the root, inside you, and ripples out through your life, your work and everyone around you. Life and work go hand in hand, and so do the inner and the outer. We pair a spiritual perspective with grounded, hands-on tools. Together we find where you're out of alignment, solve the problems in front of you, large or small, and build practical habits that make everyday life better.</p>
       <div class="hero-cta">
         <a class="btn" href="#apply">Apply to work together <span class="arr">→</span></a>
@@ -271,7 +276,7 @@ footer .foot-line { font-family: var(--display); font-style: italic; font-size: 
     <div class="wrap">
       <div class="head">
         <div class="stack"><span class="eyebrow">What we work on</span><h2>From who you are to who you're becoming</h2></div>
-        <p>The world's best are still people, with real struggles. Whatever you bring, we work on it at the root, and you leave each session with something practical you can use the same day. When one area shifts, the others follow.</p>
+        <p>Whatever you bring, we work on it at the root, and you leave each session with something practical you can use the same day. When one area shifts, the others follow.</p>
       </div>
       <div class="subgroup">
         <span class="eyebrow">Where it shows up</span>
@@ -301,7 +306,7 @@ footer .foot-line { font-family: var(--display); font-style: italic; font-size: 
       <div class="grid g4">
         <div class="step"><h3>Apply</h3><p>Share a little about yourself and any specific topic you want to work on. If it's more general, that's welcome too.</p></div>
         <div class="step"><h3>Review</h3><p>I read every application myself and reply to you personally.</p></div>
-        <div class="step"><h3>Conversation</h3><p>A first call to understand where you are and what you want to change. Together we decide on the package, the number of sessions and how often we meet, whatever suits you best.</p></div>
+        <div class="step"><h3>Initial call</h3><p>A first call to understand where you are and what you want to change. Together we decide on the package, the number of sessions and how often we meet, whatever suits you best.</p></div>
         <div class="step"><h3>Begin</h3><p>We work through it together, pairing a deeper perspective with practical steps you can bring into your everyday life.</p></div>
       </div>
     </div>
