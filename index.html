@@ -44,7 +44,6 @@ body {
 .wrap { max-width: var(--max); margin: 0 auto; padding-inline: var(--gutter); padding-block: 0; }
 h1, h2, h3 { font-family: var(--display); font-style: italic; font-weight: 500; margin: 0; line-height: 1.02; text-wrap: balance; letter-spacing: -.015em; }
 h1 { font-size: clamp(2.9rem, 6.4vw, 5rem); }
-.h1-line { display: block; }
 h2 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); }
 h3 { font-size: 1.75rem; line-height: 1.1; }
 p { margin: 0; }
@@ -71,21 +70,24 @@ p { margin: 0; }
 :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
 /* hero */
-.hero { padding-block: clamp(48px, 7vw, 88px) clamp(56px, 7vw, 88px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(32px, 4vw, 56px); align-items: center; }
-.hero-copy { display: flex; flex-direction: column; gap: 28px; min-width: 0; }
-.hero-copy .kicker { font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(1.45rem, 2.3vw, 1.8rem); line-height: 1.25; color: var(--ink); max-width: 34ch; margin-bottom: -10px; }
+.hero { padding-block: clamp(40px, 6vw, 80px) clamp(56px, 7vw, 88px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "head head" "copy art"; column-gap: clamp(32px, 5vw, 72px); row-gap: clamp(32px, 4vw, 56px); align-items: center; }
+.hero-head { grid-area: head; display: flex; flex-direction: column; gap: 20px; min-width: 0; padding-bottom: clamp(28px, 3.5vw, 44px); border-bottom: 1px solid var(--line-strong); }
+.hero-head h1 { font-size: clamp(2.6rem, 6.9vw, 5.1rem); line-height: 1.05; }
+.h1-line { display: inline; white-space: nowrap; }
+.hero-art { grid-area: art; min-width: 0; }
+.hero-copy { grid-area: copy; min-width: 0; display: flex; flex-direction: column; gap: 26px; }
+.hero .kicker { font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(1.15rem, 2.05vw, 1.6rem); line-height: 1.25; color: var(--ink); text-wrap: balance; }
 .k-line { display: block; }
-.k-line + .k-line { margin-top: 6px; }
-.hero-copy .lede { font-size: clamp(1.05rem, 1.6vw, 1.22rem); color: var(--ink-soft); max-width: 46ch; }
-.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.k-line + .k-line { margin-top: 12px; }
+.hero .lede { font-size: clamp(1.02rem, 1.25vw, 1.12rem); line-height: 1.65; color: var(--ink-soft); max-width: 56ch; text-wrap: pretty; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; }
 .hero-cta .note { font-size: .88rem; color: var(--ink-soft); }
-.hero-art { min-width: 0; }
 .diagram { width: 100%; height: auto; display: block; }
 .diagram text { font-family: var(--display); font-style: italic; fill: var(--ink); }
 .diagram .sub { fill: var(--ink-soft); }
 .art-frame { margin: 0; display: flex; flex-direction: column; gap: 18px; }
 .art-frame figcaption { font-size: .74rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); padding-top: 14px; border-top: 1px solid var(--line); }
-@media (max-width: 900px) { .hero { grid-template-columns: 1fr; } .hero-art { max-width: 520px; } }
+@media (max-width: 900px) { .hero { grid-template-columns: 1fr; grid-template-areas: "head" "copy" "art"; row-gap: 32px; } .hero-art { max-width: 520px; } .hero .kicker { font-size: 1.45rem; } .h1-line { display: block; white-space: normal; } }
 
 /* sections */
 section.block { padding-block: clamp(64px, 9vw, 120px); border-top: 1px solid var(--line); scroll-margin-top: 64px; }
@@ -194,11 +196,9 @@ footer .foot-line { font-family: var(--display); font-style: italic; font-size: 
 @media (min-width: 761px) { .mbar { display: none; } }
 
 @media (prefers-reduced-motion: no-preference) {
-  .hero-copy > *, .hero-art { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
-  .hero-copy > *:nth-child(2) { animation-delay: .08s; }
-  .hero-copy > *:nth-child(3) { animation-delay: .16s; }
-  .hero-copy > *:nth-child(4) { animation-delay: .24s; }
-  .hero-art { animation-delay: .3s; }
+  .hero > * { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+  .hero > .hero-copy { animation-delay: .12s; }
+  .hero > .hero-art { animation-delay: .22s; }
   @keyframes rise { from { opacity: .3; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 }
 </style>
@@ -218,9 +218,11 @@ footer .foot-line { font-family: var(--display); font-style: italic; font-size: 
 
 <main id="top">
   <div class="wrap hero">
-    <div class="hero-copy">
+    <div class="hero-head">
       <span class="eyebrow">Alignment for life and work</span>
       <h1><span class="h1-line">Change it at the root.</span> <span class="h1-line">Watch it ripple.</span></h1>
+    </div>
+    <div class="hero-copy">
       <p class="kicker"><span class="k-line">Even the world’s best need someone to talk to.</span> <span class="k-line">You’re at the top because you keep choosing to grow.</span></p>
       <p class="lede">Real change starts at the root, inside you, and ripples out through your life, your work and everyone around you. Life and work go hand in hand, and so do the inner and the outer. We pair a spiritual perspective with grounded, hands-on tools. Together we find where you're out of alignment, solve the problems in front of you, large or small, and build practical habits that make everyday life better.</p>
       <div class="hero-cta">
@@ -354,6 +356,47 @@ footer .foot-line { font-family: var(--display); font-style: italic; font-size: 
 
           <fieldset>
             <legend>Last details <small>03</small></legend>
+            <div class="field">
+              <label for="tz">Your time zone</label>
+              <select id="tz" name="Time zone" required>
+                <option value="">Choose one</option>
+                <option value="Pacific/Honolulu" data-city="Hawaii">Hawaii</option>
+                <option value="America/Anchorage" data-city="Alaska">Alaska</option>
+                <option value="America/Los_Angeles" data-city="Pacific Time (Los Angeles)">Pacific Time (Los Angeles)</option>
+                <option value="America/Phoenix" data-city="Arizona">Arizona</option>
+                <option value="America/Denver" data-city="Mountain Time (Denver)">Mountain Time (Denver)</option>
+                <option value="America/Chicago" data-city="Central Time (Chicago)">Central Time (Chicago)</option>
+                <option value="America/Mexico_City" data-city="Mexico City">Mexico City</option>
+                <option value="America/New_York" data-city="Eastern Time (New York)">Eastern Time (New York)</option>
+                <option value="America/Bogota" data-city="Bogotá">Bogotá</option>
+                <option value="America/Halifax" data-city="Atlantic Time (Halifax)">Atlantic Time (Halifax)</option>
+                <option value="America/Sao_Paulo" data-city="São Paulo">São Paulo</option>
+                <option value="America/Argentina/Buenos_Aires" data-city="Buenos Aires">Buenos Aires</option>
+                <option value="Europe/London" data-city="London">London</option>
+                <option value="Europe/Lisbon" data-city="Lisbon">Lisbon</option>
+                <option value="Africa/Lagos" data-city="Lagos">Lagos</option>
+                <option value="Europe/Paris" data-city="Central Europe (Paris, Berlin, Madrid)">Central Europe (Paris, Berlin, Madrid)</option>
+                <option value="Europe/Athens" data-city="Athens">Athens</option>
+                <option value="Africa/Cairo" data-city="Cairo">Cairo</option>
+                <option value="Africa/Johannesburg" data-city="Johannesburg">Johannesburg</option>
+                <option value="Asia/Jerusalem" data-city="Israel (Jerusalem, Tel Aviv)">Israel (Jerusalem, Tel Aviv)</option>
+                <option value="Europe/Istanbul" data-city="Istanbul">Istanbul</option>
+                <option value="Europe/Moscow" data-city="Moscow">Moscow</option>
+                <option value="Asia/Dubai" data-city="Dubai">Dubai</option>
+                <option value="Asia/Karachi" data-city="Karachi">Karachi</option>
+                <option value="Asia/Kolkata" data-city="India">India</option>
+                <option value="Asia/Bangkok" data-city="Bangkok">Bangkok</option>
+                <option value="Asia/Singapore" data-city="Singapore">Singapore</option>
+                <option value="Asia/Hong_Kong" data-city="Hong Kong">Hong Kong</option>
+                <option value="Asia/Shanghai" data-city="China">China</option>
+                <option value="Asia/Tokyo" data-city="Tokyo">Tokyo</option>
+                <option value="Asia/Seoul" data-city="Seoul">Seoul</option>
+                <option value="Australia/Perth" data-city="Perth">Perth</option>
+                <option value="Australia/Sydney" data-city="Sydney">Sydney</option>
+                <option value="Pacific/Auckland" data-city="Auckland">Auckland</option>
+                <option value="Other">Other (I'll mention it on the call)</option>
+              </select>
+            </div>
             <div class="two">
               <div class="field">
                 <label for="ready">When would you like to start?</label>
@@ -428,11 +471,32 @@ footer .foot-line { font-family: var(--display); font-style: italic; font-size: 
     }, { rootMargin: "0px 0px -30% 0px" }).observe(document.getElementById("apply"));
   }
 
+  // label each time zone with its current UTC offset, and preselect the visitor's own zone
+  (function () {
+    var sel = document.getElementById("tz");
+    if (!sel || !window.Intl) return;
+    var now = new Date();
+    Array.prototype.forEach.call(sel.options, function (o) {
+      if (!o.dataset.city) return;
+      try {
+        var p = new Intl.DateTimeFormat("en-US", { timeZone: o.value, timeZoneName: "shortOffset" }).formatToParts(now);
+        var off = (p.find(function (x) { return x.type === "timeZoneName"; }) || {}).value || "";
+        off = off.replace("GMT", "UTC").replace("-", "−");
+        if (off === "UTC") off = "UTC±0";
+        o.textContent = "(" + off + ") " + o.dataset.city;
+      } catch (e) {}
+    });
+    try {
+      var mine = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      if (mine && sel.querySelector('option[value="' + mine + '"]')) sel.value = mine;
+    } catch (e) {}
+  })();
+
   function collect() {
     var out = [], areas = [];
     form.querySelectorAll("input[name=Areas]:checked").forEach(function (c) { areas.push(c.value); });
     var data = {};
-    ["name","email","role","now","reach","stake","why","ready","heard"].forEach(function (id) {
+    ["name","email","role","now","reach","stake","why","ready","tz","heard"].forEach(function (id) {
       if (id === "reach") { data["Areas"] = areas.join(", "); return; }
       var el = document.getElementById(id);
       data[el.name] = el.value.trim();
