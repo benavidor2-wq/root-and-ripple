@@ -20,6 +20,8 @@
   --panel-strong: #f9f8fa;
   --ink: #121014;
   --ink-soft: #4a4550;
+  --accent: #4f5d2a;
+  --accent-deep: #3c4720;
   --line: rgba(18,16,20,.16);
   --line-strong: rgba(18,16,20,.5);
   --display: "Cormorant Garamond", "Apple Chancery", Georgia, serif;
@@ -47,7 +49,7 @@ h1 { font-size: clamp(2.9rem, 6.4vw, 5rem); }
 h2 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); }
 h3 { font-size: 1.75rem; line-height: 1.1; }
 p { margin: 0; }
-.eyebrow { font-size: .74rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--ink-soft); }
+.eyebrow { font-size: .74rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); }
 .muted { color: var(--ink-soft); }
 
 /* header */
@@ -60,14 +62,14 @@ p { margin: 0; }
 @media (max-width: 760px) { .top nav a.link { display: none; } }
 
 /* buttons */
-.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--sans); font-weight: 600; font-size: .98rem; color: var(--paper); background: var(--ink); border: 1px solid var(--ink); border-radius: 999px; padding: 13px 26px; cursor: pointer; text-decoration: none; transition: transform .2s, background .2s, color .2s; }
-.btn:hover { transform: translateY(-1px); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-family: var(--sans); font-weight: 600; font-size: .98rem; color: var(--paper); background: var(--accent); border: 1px solid var(--accent); border-radius: 999px; padding: 13px 26px; cursor: pointer; text-decoration: none; transition: transform .2s, background .2s, color .2s; }
+.btn:hover { transform: translateY(-1px); background: var(--accent-deep); border-color: var(--accent-deep); }
 .btn.sm { padding: 9px 18px; font-size: .88rem; }
 .btn.ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
-.btn.ghost:hover { background: var(--ink); color: var(--paper); }
+.btn.ghost:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
 .btn .arr { transition: transform .2s; }
 .btn:hover .arr { transform: translateX(3px); }
-:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 /* hero */
 .hero { padding-block: clamp(40px, 6vw, 80px) clamp(56px, 7vw, 88px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "head head" "copy art"; column-gap: clamp(32px, 5vw, 72px); row-gap: clamp(32px, 4vw, 56px); align-items: center; }
@@ -84,6 +86,8 @@ p { margin: 0; }
 .diagram { width: 100%; height: auto; display: block; }
 .diagram text { font-family: var(--display); font-style: italic; fill: var(--ink); }
 .diagram .sub { fill: var(--ink-soft); }
+.diagram .north { fill: var(--accent); }
+.scribble { background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20300%2024%22%20preserveAspectRatio%3D%22none%22%3E%3Cpath%20d%3D%22M3%2015%20C%2055%208%2C%20120%206%2C%20185%2010%20S%20268%2015%2C%20297%208%22%20fill%3D%22none%22%20stroke%3D%22%234f5d2a%22%20stroke-width%3D%223.2%22%20stroke-linecap%3D%22round%22/%3E%3Cpath%20d%3D%22M26%2020%20C%2095%2014%2C%20190%2014%2C%20278%2015%22%20fill%3D%22none%22%20stroke%3D%22%234f5d2a%22%20stroke-width%3D%221.6%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.7%22/%3E%3C/svg%3E") no-repeat 0 100% / 100% .3em; padding-bottom: .14em; }
 .art-frame { margin: 0; display: flex; flex-direction: column; gap: 18px; }
 .art-frame figcaption { font-size: .74rem; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--ink-soft); padding-top: 14px; border-top: 1px solid var(--line); }
 @media (max-width: 900px) { .hero { grid-template-columns: 1fr; grid-template-areas: "head" "copy" "art"; row-gap: 32px; } .hero-art { max-width: 520px; } .hero .kicker { font-size: 1.45rem; } }
@@ -93,7 +97,7 @@ section.block { padding-block: clamp(64px, 9vw, 120px); border-top: 1px solid va
 .head { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 4vw, 64px); align-items: end; margin-bottom: clamp(36px, 5vw, 64px); }
 .head > * { min-width: 0; }
 .head p { color: var(--ink-soft); max-width: 50ch; }
-.head .note { margin: 0; padding: 2px 0 2px clamp(18px, 2vw, 26px); border-left: 2px solid var(--ink); font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.3; color: var(--ink); max-width: 36ch; list-style: none; }
+.head .note { margin: 0; padding: 2px 0 2px clamp(18px, 2vw, 26px); border-left: 2px solid var(--accent); font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.3; color: var(--ink); max-width: 36ch; list-style: none; }
 .head ul.note { display: flex; flex-direction: column; gap: 6px; }
 .head .stack { display: flex; flex-direction: column; gap: 14px; }
 @media (max-width: 800px) { .head { grid-template-columns: 1fr; } }
@@ -111,7 +115,8 @@ section.block { padding-block: clamp(64px, 9vw, 120px); border-top: 1px solid va
 
 .card { background: var(--panel); border: 1px solid var(--line); border-radius: 22px; padding: 26px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 .card p { color: var(--ink-soft); font-size: .98rem; }
-.card .tag { font-size: .74rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-soft); }
+.card .tag { font-size: .74rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+.card .ico { width: 46px; height: 46px; color: var(--accent); margin: -4px 0 6px -4px; }
 
 .who { padding-top: 22px; border-top: 1.5px solid var(--ink); display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 .who p { color: var(--ink-soft); }
@@ -145,7 +150,7 @@ input[type=text], input[type=email], textarea, select {
   padding: 13px 15px; width: 100%; transition: border-color .15s, background .15s;
 }
 input:hover, textarea:hover, select:hover { border-color: var(--line-strong); }
-input:focus, textarea:focus, select:focus { outline: none; border-color: var(--ink); background: rgba(255,255,255,.85); }
+input:focus, textarea:focus, select:focus { outline: none; border-color: var(--accent); background: rgba(255,255,255,.85); }
 textarea { min-height: 120px; resize: vertical; }
 select { appearance: none; -webkit-appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--ink) 50%), linear-gradient(135deg, var(--ink) 50%, transparent 50%); background-position: calc(100% - 20px) 52%, calc(100% - 15px) 52%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 40px; }
 .invalid { border-color: var(--ink) !important; box-shadow: 0 0 0 1px var(--ink); }
@@ -155,12 +160,12 @@ select { appearance: none; -webkit-appearance: none; background-image: linear-gr
 .chip { position: relative; }
 .chip input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
 .chip span { display: inline-block; border: 1px solid var(--line-strong); border-radius: 999px; padding: 8px 16px; font-size: .92rem; cursor: pointer; transition: background .15s, color .15s; background: rgba(255,255,255,.35); }
-.chip input:checked + span { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.chip input:checked + span { background: var(--accent); color: var(--paper); border-color: var(--accent); }
 .chips.invalid { box-shadow: none; border: 0; }
 .chips.invalid .chip span { border-color: var(--ink); border-width: 1.5px; }
-.chip input:focus-visible + span { outline: 2px solid var(--ink); outline-offset: 2px; }
+.chip input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
 .check { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; font-size: .95rem; color: var(--ink-soft); }
-.check input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--ink); }
+.check input { width: 18px; height: 18px; margin-top: 3px; accent-color: var(--accent); }
 .err { font-size: .93rem; border-left: 2px solid var(--ink); padding-left: 12px; }
 .submit-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
 .submit-row .btn { padding: 15px 30px; }
@@ -177,7 +182,7 @@ footer .brand { font-size: 1.3rem; }
 .tool { padding-top: 18px; border-top: 1px solid var(--line-strong); display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .tool h3 { font-size: 1.4rem; }
 .tool p { color: var(--ink-soft); font-size: .95rem; }
-a.inline { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a.inline { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
 .check.missing input { outline: 2px solid var(--ink); outline-offset: 2px; }
 .about-text { gap: 16px; }
 .about-text p { color: var(--ink-soft); max-width: 58ch; }
@@ -220,7 +225,7 @@ footer .foot-line { font-family: var(--display); font-style: italic; font-size: 
 <main id="top">
   <div class="wrap hero">
     <div class="hero-head">
-      <h1>Alignment for your life</h1>
+      <h1>Alignment for <span class="scribble">your life</span></h1>
     </div>
     <div class="hero-copy">
       <p class="kicker"><span class="k-line">Even the world’s best need someone to talk to.</span> <span class="k-line">You’re at the top because you keep choosing to grow.</span></p>
@@ -237,12 +242,12 @@ footer .foot-line { font-family: var(--display); font-style: italic; font-size: 
     <ellipse cx="230" cy="335" rx="205" ry="145"/>
   </g>
   <g fill="none" stroke-linecap="round">
-    <path d="M388.0 250.0 L389.5 251.2 L391.0 252.3 L392.4 253.4 L393.9 254.5 L395.4 255.5 L396.9 256.4 L398.4 257.1 L399.9 257.8 L401.4 258.3 L402.8 258.7 L404.3 258.9 L405.8 259.0 L407.3 258.9 L408.8 258.7 L410.2 258.3 L411.7 257.8 L413.2 257.1 L414.7 256.4 L416.2 255.5 L417.7 254.5 L419.1 253.4 L420.6 252.3 L422.1 251.2 L423.6 250.0 L425.1 248.8 L426.6 247.7 L428.1 246.6 L429.5 245.5 L431.0 244.5 L432.5 243.6 L434.0 242.9 L435.5 242.2 L436.9 241.7 L438.4 241.3 L439.9 241.1 L441.4 241.0 L442.9 241.1 L444.4 241.3 L445.9 241.7 L447.3 242.2 L448.8 242.9 L450.3 243.6 L451.8 244.5 L453.3 245.5 L454.8 246.6 L456.2 247.7 L457.7 248.8 L459.2 250.0 L460.7 251.2 L462.2 252.3 L463.6 253.4 L465.1 254.5 L466.6 255.5 L468.1 256.4 L469.6 257.1 L471.1 257.8 L472.6 258.3 L474.0 258.7 L475.5 258.9 L477.0 259.0 L478.5 258.9 L480.0 258.7 L481.4 258.3 L482.9 257.8 L484.4 257.1 L485.9 256.4 L487.4 255.5 L488.9 254.5 L490.4 253.4 L491.8 252.3 L493.3 251.2 L494.8 250.0 L496.3 248.8 L497.8 247.7 L499.2 246.6 L500.7 245.5 L502.2 244.5 L503.7 243.6 L505.2 242.9 L506.7 242.2 L508.1 241.7 L509.6 241.3 L511.1 241.1 L512.6 241.0 L514.1 241.1 L515.6 241.3 L517.0 241.7 L518.5 242.2 L520.0 242.9 L521.5 243.6 L523.0 244.5 L524.5 245.5 L526.0 246.6 L527.4 247.7 L528.9 248.8 L530.4 250.0 L531.9 251.2 L533.4 252.3 L534.9 253.4 L536.3 254.5 L537.8 255.5 L539.3 256.4 L540.8 257.1 L542.3 257.8 L543.8 258.3 L545.2 258.7 L546.7 258.9 L548.2 259.0 L549.7 258.9 L551.2 258.7 L552.6 258.3 L554.1 257.8 L555.6 257.1 L557.1 256.4 L558.6 255.5 L560.1 254.5 L561.5 253.4 L563.0 252.3 L564.5 251.2 L566.0 250.0" stroke="var(--ink)" stroke-width="7"/>
+    <path d="M388.0 250.0 L389.5 251.2 L391.0 252.3 L392.4 253.4 L393.9 254.5 L395.4 255.5 L396.9 256.4 L398.4 257.1 L399.9 257.8 L401.4 258.3 L402.8 258.7 L404.3 258.9 L405.8 259.0 L407.3 258.9 L408.8 258.7 L410.2 258.3 L411.7 257.8 L413.2 257.1 L414.7 256.4 L416.2 255.5 L417.7 254.5 L419.1 253.4 L420.6 252.3 L422.1 251.2 L423.6 250.0 L425.1 248.8 L426.6 247.7 L428.1 246.6 L429.5 245.5 L431.0 244.5 L432.5 243.6 L434.0 242.9 L435.5 242.2 L436.9 241.7 L438.4 241.3 L439.9 241.1 L441.4 241.0 L442.9 241.1 L444.4 241.3 L445.9 241.7 L447.3 242.2 L448.8 242.9 L450.3 243.6 L451.8 244.5 L453.3 245.5 L454.8 246.6 L456.2 247.7 L457.7 248.8 L459.2 250.0 L460.7 251.2 L462.2 252.3 L463.6 253.4 L465.1 254.5 L466.6 255.5 L468.1 256.4 L469.6 257.1 L471.1 257.8 L472.6 258.3 L474.0 258.7 L475.5 258.9 L477.0 259.0 L478.5 258.9 L480.0 258.7 L481.4 258.3 L482.9 257.8 L484.4 257.1 L485.9 256.4 L487.4 255.5 L488.9 254.5 L490.4 253.4 L491.8 252.3 L493.3 251.2 L494.8 250.0 L496.3 248.8 L497.8 247.7 L499.2 246.6 L500.7 245.5 L502.2 244.5 L503.7 243.6 L505.2 242.9 L506.7 242.2 L508.1 241.7 L509.6 241.3 L511.1 241.1 L512.6 241.0 L514.1 241.1 L515.6 241.3 L517.0 241.7 L518.5 242.2 L520.0 242.9 L521.5 243.6 L523.0 244.5 L524.5 245.5 L526.0 246.6 L527.4 247.7 L528.9 248.8 L530.4 250.0 L531.9 251.2 L533.4 252.3 L534.9 253.4 L536.3 254.5 L537.8 255.5 L539.3 256.4 L540.8 257.1 L542.3 257.8 L543.8 258.3 L545.2 258.7 L546.7 258.9 L548.2 259.0 L549.7 258.9 L551.2 258.7 L552.6 258.3 L554.1 257.8 L555.6 257.1 L557.1 256.4 L558.6 255.5 L560.1 254.5 L561.5 253.4 L563.0 252.3 L564.5 251.2 L566.0 250.0" stroke="var(--accent)" stroke-width="7"/>
     <path d="M388.0 250.0 L389.5 251.2 L391.0 252.3 L392.4 253.4 L393.9 254.5 L395.4 255.5 L396.9 256.4 L398.4 257.1 L399.9 257.8 L401.4 258.3 L402.8 258.7 L404.3 258.9 L405.8 259.0 L407.3 258.9 L408.8 258.7 L410.2 258.3 L411.7 257.8 L413.2 257.1 L414.7 256.4 L416.2 255.5 L417.7 254.5 L419.1 253.4 L420.6 252.3 L422.1 251.2 L423.6 250.0 L425.1 248.8 L426.6 247.7 L428.1 246.6 L429.5 245.5 L431.0 244.5 L432.5 243.6 L434.0 242.9 L435.5 242.2 L436.9 241.7 L438.4 241.3 L439.9 241.1 L441.4 241.0 L442.9 241.1 L444.4 241.3 L445.9 241.7 L447.3 242.2 L448.8 242.9 L450.3 243.6 L451.8 244.5 L453.3 245.5 L454.8 246.6 L456.2 247.7 L457.7 248.8 L459.2 250.0 L460.7 251.2 L462.2 252.3 L463.6 253.4 L465.1 254.5 L466.6 255.5 L468.1 256.4 L469.6 257.1 L471.1 257.8 L472.6 258.3 L474.0 258.7 L475.5 258.9 L477.0 259.0 L478.5 258.9 L480.0 258.7 L481.4 258.3 L482.9 257.8 L484.4 257.1 L485.9 256.4 L487.4 255.5 L488.9 254.5 L490.4 253.4 L491.8 252.3 L493.3 251.2 L494.8 250.0 L496.3 248.8 L497.8 247.7 L499.2 246.6 L500.7 245.5 L502.2 244.5 L503.7 243.6 L505.2 242.9 L506.7 242.2 L508.1 241.7 L509.6 241.3 L511.1 241.1 L512.6 241.0 L514.1 241.1 L515.6 241.3 L517.0 241.7 L518.5 242.2 L520.0 242.9 L521.5 243.6 L523.0 244.5 L524.5 245.5 L526.0 246.6 L527.4 247.7 L528.9 248.8 L530.4 250.0 L531.9 251.2 L533.4 252.3 L534.9 253.4 L536.3 254.5 L537.8 255.5 L539.3 256.4 L540.8 257.1 L542.3 257.8 L543.8 258.3 L545.2 258.7 L546.7 258.9 L548.2 259.0 L549.7 258.9 L551.2 258.7 L552.6 258.3 L554.1 257.8 L555.6 257.1 L557.1 256.4 L558.6 255.5 L560.1 254.5 L561.5 253.4 L563.0 252.3 L564.5 251.2 L566.0 250.0" stroke="var(--paper)" stroke-width="3"/>
-    <path d="M388.0 250.0 L389.5 248.8 L391.0 247.7 L392.4 246.6 L393.9 245.5 L395.4 244.5 L396.9 243.6 L398.4 242.9 L399.9 242.2 L401.4 241.7 L402.8 241.3 L404.3 241.1 L405.8 241.0 L407.3 241.1 L408.8 241.3 L410.2 241.7 L411.7 242.2 L413.2 242.9 L414.7 243.6 L416.2 244.5 L417.7 245.5 L419.1 246.6 L420.6 247.7 L422.1 248.8 L423.6 250.0 L425.1 251.2 L426.6 252.3 L428.1 253.4 L429.5 254.5 L431.0 255.5 L432.5 256.4 L434.0 257.1 L435.5 257.8 L436.9 258.3 L438.4 258.7 L439.9 258.9 L441.4 259.0 L442.9 258.9 L444.4 258.7 L445.9 258.3 L447.3 257.8 L448.8 257.1 L450.3 256.4 L451.8 255.5 L453.3 254.5 L454.8 253.4 L456.2 252.3 L457.7 251.2 L459.2 250.0 L460.7 248.8 L462.2 247.7 L463.6 246.6 L465.1 245.5 L466.6 244.5 L468.1 243.6 L469.6 242.9 L471.1 242.2 L472.6 241.7 L474.0 241.3 L475.5 241.1 L477.0 241.0 L478.5 241.1 L480.0 241.3 L481.4 241.7 L482.9 242.2 L484.4 242.9 L485.9 243.6 L487.4 244.5 L488.9 245.5 L490.4 246.6 L491.8 247.7 L493.3 248.8 L494.8 250.0 L496.3 251.2 L497.8 252.3 L499.2 253.4 L500.7 254.5 L502.2 255.5 L503.7 256.4 L505.2 257.1 L506.7 257.8 L508.1 258.3 L509.6 258.7 L511.1 258.9 L512.6 259.0 L514.1 258.9 L515.6 258.7 L517.0 258.3 L518.5 257.8 L520.0 257.1 L521.5 256.4 L523.0 255.5 L524.5 254.5 L526.0 253.4 L527.4 252.3 L528.9 251.2 L530.4 250.0 L531.9 248.8 L533.4 247.7 L534.9 246.6 L536.3 245.5 L537.8 244.5 L539.3 243.6 L540.8 242.9 L542.3 242.2 L543.8 241.7 L545.2 241.3 L546.7 241.1 L548.2 241.0 L549.7 241.1 L551.2 241.3 L552.6 241.7 L554.1 242.2 L555.6 242.9 L557.1 243.6 L558.6 244.5 L560.1 245.5 L561.5 246.6 L563.0 247.7 L564.5 248.8 L566.0 250.0" stroke="var(--ink)" stroke-width="7"/>
+    <path d="M388.0 250.0 L389.5 248.8 L391.0 247.7 L392.4 246.6 L393.9 245.5 L395.4 244.5 L396.9 243.6 L398.4 242.9 L399.9 242.2 L401.4 241.7 L402.8 241.3 L404.3 241.1 L405.8 241.0 L407.3 241.1 L408.8 241.3 L410.2 241.7 L411.7 242.2 L413.2 242.9 L414.7 243.6 L416.2 244.5 L417.7 245.5 L419.1 246.6 L420.6 247.7 L422.1 248.8 L423.6 250.0 L425.1 251.2 L426.6 252.3 L428.1 253.4 L429.5 254.5 L431.0 255.5 L432.5 256.4 L434.0 257.1 L435.5 257.8 L436.9 258.3 L438.4 258.7 L439.9 258.9 L441.4 259.0 L442.9 258.9 L444.4 258.7 L445.9 258.3 L447.3 257.8 L448.8 257.1 L450.3 256.4 L451.8 255.5 L453.3 254.5 L454.8 253.4 L456.2 252.3 L457.7 251.2 L459.2 250.0 L460.7 248.8 L462.2 247.7 L463.6 246.6 L465.1 245.5 L466.6 244.5 L468.1 243.6 L469.6 242.9 L471.1 242.2 L472.6 241.7 L474.0 241.3 L475.5 241.1 L477.0 241.0 L478.5 241.1 L480.0 241.3 L481.4 241.7 L482.9 242.2 L484.4 242.9 L485.9 243.6 L487.4 244.5 L488.9 245.5 L490.4 246.6 L491.8 247.7 L493.3 248.8 L494.8 250.0 L496.3 251.2 L497.8 252.3 L499.2 253.4 L500.7 254.5 L502.2 255.5 L503.7 256.4 L505.2 257.1 L506.7 257.8 L508.1 258.3 L509.6 258.7 L511.1 258.9 L512.6 259.0 L514.1 258.9 L515.6 258.7 L517.0 258.3 L518.5 257.8 L520.0 257.1 L521.5 256.4 L523.0 255.5 L524.5 254.5 L526.0 253.4 L527.4 252.3 L528.9 251.2 L530.4 250.0 L531.9 248.8 L533.4 247.7 L534.9 246.6 L536.3 245.5 L537.8 244.5 L539.3 243.6 L540.8 242.9 L542.3 242.2 L543.8 241.7 L545.2 241.3 L546.7 241.1 L548.2 241.0 L549.7 241.1 L551.2 241.3 L552.6 241.7 L554.1 242.2 L555.6 242.9 L557.1 243.6 L558.6 244.5 L560.1 245.5 L561.5 246.6 L563.0 247.7 L564.5 248.8 L566.0 250.0" stroke="var(--accent)" stroke-width="7"/>
     <path d="M388.0 250.0 L389.5 248.8 L391.0 247.7 L392.4 246.6 L393.9 245.5 L395.4 244.5 L396.9 243.6 L398.4 242.9 L399.9 242.2 L401.4 241.7 L402.8 241.3 L404.3 241.1 L405.8 241.0 L407.3 241.1 L408.8 241.3 L410.2 241.7 L411.7 242.2 L413.2 242.9 L414.7 243.6 L416.2 244.5 L417.7 245.5 L419.1 246.6 L420.6 247.7 L422.1 248.8 L423.6 250.0 L425.1 251.2 L426.6 252.3 L428.1 253.4 L429.5 254.5 L431.0 255.5 L432.5 256.4 L434.0 257.1 L435.5 257.8 L436.9 258.3 L438.4 258.7 L439.9 258.9 L441.4 259.0 L442.9 258.9 L444.4 258.7 L445.9 258.3 L447.3 257.8 L448.8 257.1 L450.3 256.4 L451.8 255.5 L453.3 254.5 L454.8 253.4 L456.2 252.3 L457.7 251.2 L459.2 250.0 L460.7 248.8 L462.2 247.7 L463.6 246.6 L465.1 245.5 L466.6 244.5 L468.1 243.6 L469.6 242.9 L471.1 242.2 L472.6 241.7 L474.0 241.3 L475.5 241.1 L477.0 241.0 L478.5 241.1 L480.0 241.3 L481.4 241.7 L482.9 242.2 L484.4 242.9 L485.9 243.6 L487.4 244.5 L488.9 245.5 L490.4 246.6 L491.8 247.7 L493.3 248.8 L494.8 250.0 L496.3 251.2 L497.8 252.3 L499.2 253.4 L500.7 254.5 L502.2 255.5 L503.7 256.4 L505.2 257.1 L506.7 257.8 L508.1 258.3 L509.6 258.7 L511.1 258.9 L512.6 259.0 L514.1 258.9 L515.6 258.7 L517.0 258.3 L518.5 257.8 L520.0 257.1 L521.5 256.4 L523.0 255.5 L524.5 254.5 L526.0 253.4 L527.4 252.3 L528.9 251.2 L530.4 250.0 L531.9 248.8 L533.4 247.7 L534.9 246.6 L536.3 245.5 L537.8 244.5 L539.3 243.6 L540.8 242.9 L542.3 242.2 L543.8 241.7 L545.2 241.3 L546.7 241.1 L548.2 241.0 L549.7 241.1 L551.2 241.3 L552.6 241.7 L554.1 242.2 L555.6 242.9 L557.1 243.6 L558.6 244.5 L560.1 245.5 L561.5 246.6 L563.0 247.7 L564.5 248.8 L566.0 250.0" stroke="var(--paper)" stroke-width="3"/>
   </g>
-  <path d="M560 224 L600 250 L560 276 L570 250 Z" fill="var(--paper)" stroke="var(--ink)" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M560 224 L600 250 L560 276 L570 250 Z" fill="var(--paper)" stroke="var(--accent)" stroke-width="2.2" stroke-linejoin="round"/>
   <rect x="350" y="98" width="42" height="310" rx="21" fill="var(--paper)" stroke="var(--ink)" stroke-width="2.2"/>
   <text x="371" y="253" font-size="26" text-anchor="middle" dominant-baseline="middle" transform="rotate(90 370 253)">Nervous System</text>
   <g text-anchor="middle">
@@ -254,8 +259,8 @@ footer .foot-line { font-family: var(--display); font-style: italic; font-size: 
     <text x="196" y="350" font-size="33" font-weight="600">Body / Gut Feeling</text>
     <text x="200" y="394" font-size="25" class="sub">Feelings, Instincts,</text>
     <text x="200" y="424" font-size="25" class="sub">Senses</text>
-    <text x="696" y="240" font-size="44" font-weight="600">Our True</text>
-    <text x="696" y="288" font-size="44" font-weight="600">North</text>
+    <text x="696" y="240" font-size="44" font-weight="600" class="north">Our True</text>
+    <text x="696" y="288" font-size="44" font-weight="600" class="north">North</text>
   </g>
 </svg></figure>
     </div>
@@ -267,9 +272,9 @@ footer .foot-line { font-family: var(--display); font-style: italic; font-size: 
         <div class="stack"><span class="eyebrow">Approach</span><h2>Spirit and body – one system</h2></div>
       </div>
       <div class="grid g3">
-        <div class="card"><span class="tag">Mind</span><h3>How you think</h3><p>Spot the beliefs and thought patterns that keep you stuck, and replace them with clearer ones.</p></div>
-        <div class="card"><span class="tag">Heart</span><h3>What you want</h3><p>Reconnect with your internal compass and the deeper sense of meaning beneath it, so your choices reflect what truly matters.</p></div>
-        <div class="card"><span class="tag">Body</span><h3>What you feel</h3><p>Learn to read stress, energy and instinct instead of pushing past them.</p></div>
+        <div class="card"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M24.4 25.1 L24.0 25.6 L23.3 25.6 L22.4 25.6 L21.5 25.0 L20.8 23.9 L21.0 22.7 L21.4 21.4 L22.4 20.1 L24.1 19.4 L25.9 19.5 L27.7 20.4 L29.3 21.8 L30.0 24.0 L29.8 26.4 L28.9 28.9 L26.7 30.6 L24.0 31.5 L21.0 31.3 L18.2 29.8 L16.1 27.3 L15.1 24.0 L15.5 20.5 L17.0 17.1 L20.1 14.7 L23.9 13.6 L28.1 13.9 L31.8 16.0 L34.7 19.4 L36.1 23.8 L35.4 28.6 L33.0 32.8 L29.2 36.0 L24.2 37.3 L18.9 36.9 L14.2 34.2 L10.7 29.9 L9.1 24.3 L9.9 18.5 L12.6 13.2 L17.4 9.2 L23.6 7.7 L30.0 8.3 L35.9 11.4 L39.9 16.8 L41.8 23.4 L41.3 30.5 L37.8 36.9 L31.9 41.2 L24.7 43.5"/></svg><span class="tag">Mind</span><h3>How you think</h3><p>Spot the beliefs and thought patterns that keep you stuck, and replace them with clearer ones.</p></div>
+        <div class="card"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M24.5 39 C 15 31.5, 6.5 25, 8 16 C 9.5 8.5, 19 7, 23.8 15.2 C 28.5 6.5, 38.5 8, 40.2 15.5 C 42 24.5, 33 31, 23 39.8"/></svg><span class="tag">Heart</span><h3>What you want</h3><p>Reconnect with your internal compass and the deeper sense of meaning beneath it, so your choices reflect what truly matters.</p></div>
+        <div class="card"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M24 42 C 24.4 35, 23.4 28, 24.2 19"/><path d="M24 29 C 16 29, 10.5 23.5, 9.5 16.5 C 17 16.2, 23 20.5, 24.1 28.6"/><path d="M24.2 21.5 C 25.8 13.5, 32 9, 39.5 8.8 C 38.8 16, 32.5 21, 24.6 21.4"/><path d="M13 42.3 C 19 41.2, 29 41.6, 36 42"/></svg><span class="tag">Body</span><h3>What you feel</h3><p>Learn to read stress, energy and instinct instead of pushing past them.</p></div>
       </div>
     </div>
   </section>
