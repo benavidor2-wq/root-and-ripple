@@ -71,11 +71,8 @@ p { margin: 0; }
 
 /* hero */
 .hero { padding-block: clamp(40px, 6vw, 80px) clamp(56px, 7vw, 88px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "head head" "copy art"; column-gap: clamp(32px, 5vw, 72px); row-gap: clamp(32px, 4vw, 56px); align-items: center; }
-.hero-head { grid-area: head; display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 12px; min-width: 0; padding-bottom: clamp(28px, 3.5vw, 44px); border-bottom: 1px solid var(--line-strong); }
+.hero-head { grid-area: head; display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 12px; min-width: 0; }
 .hero-head h1 { font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(2.6rem, 6.9vw, 5.1rem); line-height: 1.05; letter-spacing: -.015em; color: var(--ink); margin: 0; }
-.hero-lines { display: flex; flex-direction: column; gap: 12px; }
-.hero .tagline { font-family: var(--display); font-style: italic; font-weight: 400; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height: 1.1; color: var(--ink); }
-.tagline span { white-space: nowrap; }
 .hero-art { grid-area: art; min-width: 0; }
 .hero-copy { grid-area: copy; min-width: 0; display: flex; flex-direction: column; gap: 26px; }
 .hero .kicker { font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(1.15rem, 2.05vw, 1.6rem); line-height: 1.25; color: var(--ink); text-wrap: balance; }
@@ -226,10 +223,7 @@ footer .foot-line { font-family: var(--display); font-style: italic; font-size: 
       <h1>Alignment for your life</h1>
     </div>
     <div class="hero-copy">
-      <div class="hero-lines">
-      <p class="tagline"><span>Change it at the root.</span> <span>Watch it ripple.</span></p>
       <p class="kicker"><span class="k-line">Even the world’s best need someone to talk to.</span> <span class="k-line">You’re at the top because you keep choosing to grow.</span></p>
-      </div>
       <p class="lede">Real change starts at the root, inside you, and ripples out through your life, your work and everyone around you. Life and work go hand in hand, and so do the inner and the outer. We pair a spiritual perspective with grounded, hands-on tools. Together we find where you're out of alignment, solve the problems in front of you, large or small, and build practices that make everyday life better.</p>
       <div class="hero-cta">
         <a class="btn" href="#apply">Apply to work together <span class="arr">→</span></a>
