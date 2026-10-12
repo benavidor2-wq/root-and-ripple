@@ -71,7 +71,7 @@ p { margin: 0; }
 
 /* hero */
 .hero { padding-block: clamp(40px, 6vw, 80px) clamp(56px, 7vw, 88px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "head head" "copy art"; column-gap: clamp(32px, 5vw, 72px); row-gap: clamp(32px, 4vw, 56px); align-items: center; }
-.hero-head { grid-area: head; display: flex; flex-direction: column; gap: 20px; min-width: 0; padding-bottom: clamp(28px, 3.5vw, 44px); border-bottom: 1px solid var(--line-strong); }
+.hero-head { grid-area: head; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; min-width: 0; padding-bottom: clamp(28px, 3.5vw, 44px); border-bottom: 1px solid var(--line-strong); }
 .hero-head h1 { font-size: clamp(2.6rem, 6.9vw, 5.1rem); line-height: 1.05; }
 .h1-line { display: inline; white-space: nowrap; }
 .hero-art { grid-area: art; min-width: 0; }
@@ -219,8 +219,8 @@ footer .foot-line { font-family: var(--display); font-style: italic; font-size: 
 <main id="top">
   <div class="wrap hero">
     <div class="hero-head">
-      <span class="eyebrow">Alignment for life and work</span>
       <h1><span class="h1-line">Change it at the root.</span> <span class="h1-line">Watch it ripple.</span></h1>
+      <span class="eyebrow">Alignment for life and work</span>
     </div>
     <div class="hero-copy">
       <p class="kicker"><span class="k-line">Even the world’s best need someone to talk to.</span> <span class="k-line">You’re at the top because you keep choosing to grow.</span></p>
